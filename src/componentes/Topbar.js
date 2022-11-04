@@ -1,12 +1,17 @@
 import "./Topbar.css";
 import pokeball from "../images/pokeball.png";
 import pokeball2 from "../images/pokeball2.jpg";
+import pokedeximage from "../images/pokedeximage.png";
 
 function Topbar() {
   return (
     <div className="title">
       <div className="title_left">
-        <p>PokeDex</p>
+        <img
+          src={pokedeximage}
+          alt="pokeball standart"
+          style={{ width: "200px", marginRight: "10px" }}
+        />
         <div className="caught-seen">
           <div className="caught">
             <img
@@ -26,7 +31,7 @@ function Topbar() {
           </div>
         </div>
       </div>
-      <p style={{ color: "white" }}>A -&gt; Z</p>
+      <p style={{ color: "white" }}>By Number</p>
     </div>
   );
 }

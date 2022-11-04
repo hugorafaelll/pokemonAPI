@@ -7,6 +7,29 @@
     top: 30px;
     width: 100%;
     height: 50px;
-    background:linear-gradient(115deg,
-    #c92d7b 57,7%, black 57,7% );
+background: linear-gradient(115deg, red , yellow);
+}
+
+.title_left{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+}
+
+
+.caught-seen{
+    display: flex;
+    align-items: center;
+}
+
+.caught, 
+.seen{
+    display: flex;
+    align-items: center;
+    background:#ffa500;
+    border-radius: 10px;
+    margin-left: 20px;
+    padding: 5px 20px;
+    color: white;
 }
