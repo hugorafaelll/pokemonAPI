@@ -4,11 +4,13 @@ import PokemonCard from "./PokemonCard.js";
 import "./PokeList.css";
 
 function PokeList() {
-  const url = "https://pokeapi.co/api/v2/pokemon?limit=649&offset=0";
+  // const url = "https://pokeapi.co/api/v2/pokemon?limit=649&offset=0";
   const [allPokemons, setAllPokemons] = useState([]);
 
   const getAllPokemons = async () => {
-    const res = await fetch(url);
+    const res = await fetch(
+      "https://pokeapi.co/api/v2/pokemon?limit=649&offset=0"
+    );
     const data = await res.json();
 
     function createPokemonObject(results) {
@@ -22,34 +24,17 @@ function PokeList() {
       });
     }
     createPokemonObject(data.results);
-    console.log(allPokemons);
   };
 
   useEffect(() => {
     getAllPokemons();
+    console.log(allPokemons);
   }, []);
 
   return (
     <div className="app-container">
       <div className="pokemon-container">
-        <div className="all-container">
-          {allPokemons.map((pokemonStats) => (
-            <PokemonCard
-              key={pokemonStats.id}
-              id={pokemonStats.id.toString().padStart(3, "0")}
-              image={
-                pokemonStats.sprites.other["official-artwork"].front_default
-              }
-              name={pokemonStats.name.replace(/^./, (str) => str.toUpperCase())}
-              // type={pokemonStats.types[0].type.name}
-              weight={pokemonStats.weight}
-              height={pokemonStats.height}
-              stats={pokemonStats.stats
-                .map((stat) => stat.base_stat)
-                .slice(0, 3)}
-            />
-          ))}
-        </div>
+        <div className="all-container"></div>
       </div>
     </div>
   );
