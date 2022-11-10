@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import PokemonCard from "./PokemonCard.js";
+import React from "react";
 import "./PokeList.css";
 
 function PokeList() {
+<<<<<<< HEAD
   const url = "https://pokeapi.co/api/v2/pokemon?limit=649&offset=0";
   const [allPokemons, setAllPokemons] = useState([]);
 
@@ -25,6 +24,9 @@ function PokeList() {
       </div>
     </div>
   );
+=======
+  return <div>PokeList</div>;
+>>>>>>> parent of 10dd866 (try use images from api)
 }
 
 export default PokeList;
