@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./PokeCard.css";
 import pokeball from "../images/pokeball.jpg";
 
 function PokeCard({ id, name, image, type, weight, height, stats, statsName }) {
+  const [isShown, setIsShown] = useState(false);
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  function closeModalHandler() {
+    setModalIsOpen(true);
+  }
+
+  function closeModalHandler() {
+    setModalIsOpen(false);
+  }
+
   return (
     <div className="container">
+      { isShown && (
       <div className="show">
         <div className="stat-container-title">
           <img src={image} alt={name} className="image-title" />
@@ -42,8 +55,13 @@ function PokeCard({ id, name, image, type, weight, height, stats, statsName }) {
               ))}
             </div>
           </div>
-        </div>
-        <div className="right">
+          </div>
+      )}
+        <div
+          className="right"
+          onMouseEnter={() => setIsShown(true)}
+          onMouseLeave={() => setIsShown(false)}
+        >
           <img
             src={image}
             alt={name}
@@ -54,8 +72,20 @@ function PokeCard({ id, name, image, type, weight, height, stats, statsName }) {
             }}
           />
           <p style={{ width: "270px" }}>No. {id}</p>
+          <p>{name}</p>
+          <img
+            src={pokeball}
+            alt="pokeball"
+            style={{ marginLeft: "auto", width: "40px" }}
+          />
         </div>
-      </div>
+        </div>
+        {modalIsOpen && (
+        <Modal 
+          id={id}
+        />
+        
+        ) }
     </div>
   );
 }
