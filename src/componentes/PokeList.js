@@ -22,12 +22,10 @@ function PokeList() {
       });
     }
     createPokemonObject(data.results);
-    console.log(allPokemons);
   };
 
   useEffect(() => {
     getAllPokemons();
-    console.log(allPokemons);
   }, []);
 
   return (
@@ -41,8 +39,8 @@ function PokeList() {
               image={
                 pokemonStats.sprites.other["official-artwork"].front_default
               }
-              name={pokemonStats.name.replace(/^./, (str) => str.toUpercase())}
-              type={pokemonStats.type[0].type.name}
+              name={pokemonStats.name}
+              type={pokemonStats.types[0].type.name}
               weight={pokemonStats.weight}
               height={pokemonStats.height}
               stats={pokemonStats.stats

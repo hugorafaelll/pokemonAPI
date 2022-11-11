@@ -31,7 +31,7 @@ function Topbar() {
           </div>
         </div>
       </div>
-      <p style={{ color: "white" }}>By Number</p>
+      <p style={{ color: "white" }}> By Number</p>
     </div>
   );
 }
