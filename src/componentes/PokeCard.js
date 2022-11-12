@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./PokeCard.css";
 import pokeball from "../images/pokeball.jpg";
+import Modal from "./Modal";
 
 function PokeCard({ id, name, image, type, weight, height, stats, statsName }) {
   const [isShown, setIsShown] = useState(false);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  function closeModalHandler() {
+  function modalHandler() {
     setModalIsOpen(true);
   }
 
@@ -17,17 +18,16 @@ function PokeCard({ id, name, image, type, weight, height, stats, statsName }) {
 
   return (
     <div className="container">
-      { isShown && (
       <div className="show">
         <div className="stat-container-title">
           <img src={image} alt={name} className="image-title" />
-          <p style={{ width: "180px", color: "black" }}> No.{id} </p>
+          <p style={{ width: "180px", color: "black" }}>
+            No.
+            {id}
+          </p>
           <p>{name}</p>
           <img src={pokeball} alt="pokeball" className="pokeball-title" />
         </div>
-        <img src={image} alt={name} className="image-title" />
-        <p style={{ width: "180px", color: "black" }}>NO. {id}</p>
-        <p>{name}</p>
         <img src={image} alt={name} />
         <div style={{ display: "flex", width: "100%" }}>
           <div
@@ -35,7 +35,7 @@ function PokeCard({ id, name, image, type, weight, height, stats, statsName }) {
             className="stats-left"
           >
             <p>Type</p>
-            <p>height</p>
+            <p>Height</p>
             <p>Weight</p>
           </div>
           <div style={{ background: "#ffffffff" }} className="stat-right">
@@ -43,20 +43,8 @@ function PokeCard({ id, name, image, type, weight, height, stats, statsName }) {
             <p>{height} 0 cm </p>
             <p>{weight} lbs </p>
           </div>
-          <div className="base-stats">
-            <div>
-              {statsName.map((stats) => (
-                <p className="stats">{stats} </p>
-              ))}
-            </div>
-            <div>
-              {stats.map((stats) => (
-                <p className="stats">{stats}</p>
-              ))}
-            </div>
-          </div>
-          </div>
-      )}
+        </div>
+
         <div
           className="right"
           onMouseEnter={() => setIsShown(true)}
@@ -79,13 +67,19 @@ function PokeCard({ id, name, image, type, weight, height, stats, statsName }) {
             style={{ marginLeft: "auto", width: "40px" }}
           />
         </div>
-        </div>
-        {modalIsOpen && (
-        <Modal 
+      </div>
+      {modalIsOpen && (
+        <Modal
           id={id}
+          name={name}
+          image={image}
+          height={height}
+          weight={weight}
+          statsName={statsName}
+          type={type}
+          onClick={closeModalHandler}
         />
-        
-        ) }
+      )}
     </div>
   );
 }
