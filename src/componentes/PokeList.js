@@ -34,7 +34,7 @@ function PokeList() {
         <div className="all-container">
           {allPokemons.map((pokemonStats) => (
             <PokeCard
-              key={pokemonStats.id}
+              key={pokemonStats.name}
               id={pokemonStats.id.toString().padStart(3, "0")}
               image={
                 pokemonStats.sprites.other["official-artwork"].front_default
@@ -45,6 +45,9 @@ function PokeList() {
               height={pokemonStats.height}
               stats={pokemonStats.stats
                 .map((stat) => stat.base_stat)
+                .slice(0, 3)}
+              statsName={pokemonStats.stats
+                .map((stat) => stat.stat.name)
                 .slice(0, 3)}
             />
           ))}
