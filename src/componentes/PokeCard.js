@@ -28,7 +28,6 @@ function PokeCard({ id, name, image, type, weight, height, stats, statsName }) {
           <p>{name}</p>
           <img src={pokeball} alt="pokeball" className="pokeball-title" />
         </div>
-        <img src={image} alt={name} />
         <div style={{ display: "flex", width: "100%" }}>
           <div
             style={{ background: "#dbdbd9", textAlign: "center" }}
@@ -49,6 +48,7 @@ function PokeCard({ id, name, image, type, weight, height, stats, statsName }) {
           className="right"
           onMouseEnter={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
+          onClick={modalHandler}
         >
           <img
             src={image}
