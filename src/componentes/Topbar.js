@@ -1,6 +1,6 @@
 import "./Topbar.css";
-import pokeball from "../images/pokeball.png";
-import pokeball2 from "../images/pokeball2.jpg";
+import pokeball from "../images/pokeTop.png";
+import pokeball2 from "../images/pokeball.png";
 import pokedeximage from "../images/pokedeximage.png";
 
 function Topbar() {
