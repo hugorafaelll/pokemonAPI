@@ -76,6 +76,19 @@ function PokeCard({ id, name, image, type, weight, height, stats, statsName }) {
           style={{ marginLeft: "auto", width: "40px" }}
         />
       </div>
+      {modalIsOpen && (
+        <Modal
+          id={id}
+          name={name}
+          image={image}
+          height={height}
+          weight={weight}
+          stats={stats}
+          statsName={statsName}
+          type={type}
+          onClick={closeModalHandler}
+        />
+      )}
     </div>
   );
 }
